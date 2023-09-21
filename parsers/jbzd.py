@@ -52,7 +52,7 @@ def parse_meme(m):
     ]
 
     points = None
-    points_text = m.css(".btn-plus span::text").get()
+    points_text = m.css("vote").attrib[":score"]
     try:
         points = int(points_text)
     except:
