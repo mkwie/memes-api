@@ -36,7 +36,6 @@ def hello():
         ]
     )
 
-
 @app.route("/kwejk")
 def kwejk_root():
     return to_response(kwejk.scrap("https://kwejk.pl"))
@@ -46,16 +45,17 @@ def kwejk_root():
 def kwejk_page(page):
     return to_response(kwejk.scrap("https://kwejk.pl/strona/{}".format(page)))
 
-
 @app.route("/jbzd")
 def jbzd_root():
     return to_response(jbzd.scrap("https://jbzd.com.pl"))
-
 
 @app.route("/jbzd/page/<page>")
 def jbzd_page(page):
     return to_response(jbzd.scrap("https://jbzd.com.pl/str/{}".format(page)))
 
+@app.route("/jbzd/<category>/page/<page>")
+def jbzd_category_page(category, page):
+    return to_response(jbzd.scrap("https://jbzd.com.pl/{0}/{1}".format(category,page)))
 
 @app.route("/mistrzowie")
 def mistrzowie_root():
